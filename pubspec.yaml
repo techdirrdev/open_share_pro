@@ -1,7 +1,7 @@
 name: open_share_pro
 description: Flutter Plugin for sharing contents to social media.You can use it share to Mail, Phone, WhatsApp And System Share UI.
 repository: https://github.com/techdirrdev/open_share_pro.git
-version: 1.1.0
+version: 1.2.0
 
 environment:
   sdk: ">=2.17.3 <3.0.0"
