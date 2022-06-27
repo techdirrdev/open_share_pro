@@ -46,7 +46,7 @@ class Open {
   /// open phone dial
   static Future<bool> phone(
       {String phoneNumber = "",
-      OpenMode mode: OpenMode.externalNonBrowserApplication}) async {
+      OpenMode mode = OpenMode.externalNonBrowserApplication}) async {
     return await Open.browser(url: "tel:$phoneNumber", mode: mode);
   }
 
@@ -55,7 +55,7 @@ class Open {
       {String toAddress = "",
       String subject = "",
       String body = "",
-      OpenMode mode: OpenMode.externalNonBrowserApplication}) async {
+      OpenMode mode = OpenMode.externalNonBrowserApplication}) async {
     return await Open.browser(
         url: "mailto:$toAddress?subject=$subject&body=$body", mode: mode);
   }
@@ -64,7 +64,7 @@ class Open {
   static Future<bool> whatsApp(
       {String? whatsAppNumber,
       String text = "",
-      OpenMode mode: OpenMode.externalNonBrowserApplication}) async {
+      OpenMode mode = OpenMode.externalNonBrowserApplication}) async {
     if (whatsAppNumber != null && whatsAppNumber.isNotEmpty) {
       return await Open.browser(
           url: "https://api.whatsapp.com/send?phone=$whatsAppNumber&text=$text",
