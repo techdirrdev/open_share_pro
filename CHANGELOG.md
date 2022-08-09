@@ -1,3 +1,7 @@
+## 1.3.0
+
+* Open local file (only Android, iOS).
+
 ## 1.2.0
 
 * Open local file (only Android, iOS).
