@@ -54,3 +54,9 @@ Open.mail(toAddress: "dev@techdirr.com",subject: "techdirr",body: "techdirr dev"
 Open.whatsApp(whatsAppNumber: "919426636120", text: "techdirr")
 ```
 
+### Local File (Only ANDROID, IOS)
+
+```dart
+Open.localFile(filePath: localFilePath)
+```
+

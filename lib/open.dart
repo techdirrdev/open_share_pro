@@ -1,3 +1,4 @@
+import 'package:open_file/open_file.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 enum OpenMode {
@@ -72,5 +73,10 @@ class Open {
     } else {
       return await Open.browser(url: "whatsapp://send?text=$text", mode: mode);
     }
+  }
+
+  /// open local file (Only ANDROID, IOS)
+  static Future<OpenResult> localFile({String filePath = ""}) async {
+    return OpenFile.open(filePath);
   }
 }
