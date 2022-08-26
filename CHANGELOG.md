@@ -1,6 +1,6 @@
 ## 1.3.0
 
-* Open local file (only Android, iOS).
+* Open Browser, Mail, Phone, WhatsApp, Local file (only Android, iOS).
 
 ## 1.2.0
 
