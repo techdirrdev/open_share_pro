@@ -1,3 +1,7 @@
+## 1.4.0
+
+* Open Browser, Mail, Phone, WhatsApp, Local file (only Android, iOS).
+
 ## 1.3.0
 
 * Open Browser, Mail, Phone, WhatsApp, Local file (only Android, iOS).
