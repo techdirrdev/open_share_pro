@@ -45,7 +45,7 @@ Open.phone(phoneNumber: "+919426636120")
 ### Mail
 
 ```dart
-Open.mail(toAddress: "dev@techdirr.com",subject: "techdirr",body: "techdirr dev")
+Open.mail(toAddress: "dev@techdirr.com", subject: "techdirr", body: "techdirr dev")
 ```
 
 ### WhatsApp (whatsAppNumber with country code)

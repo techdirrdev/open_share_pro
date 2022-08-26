@@ -20,8 +20,71 @@ enum OpenMode {
 class Open {
   /// open content to browser
   static Future<bool> browser(
-      {String url = "",
+      {String url = "", OpenMode mode = OpenMode.platformDefault}) async {
+    try {
+      return await launchUrl(Uri.parse(url), mode: _getLaunchMode(mode));
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /// open phone dial
+  static Future<bool> phone(
+      {String phoneNumber = "",
+      OpenMode mode = OpenMode.platformDefault}) async {
+    try {
+      return await launchUrl(Uri.parse("tel:$phoneNumber"),
+          mode: _getLaunchMode(mode));
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /// share content to mail
+  static Future<bool> mail(
+      {String toAddress = "",
+      String subject = "",
+      String body = "",
+      OpenMode mode = OpenMode.platformDefault}) async {
+    try {
+      return await launchUrl(
+          Uri.parse("mailto:$toAddress?subject=$subject&body=$body"),
+          mode: _getLaunchMode(mode));
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /// share content to whatsapp
+  static Future<bool> whatsApp(
+      {String? whatsAppNumber,
+      String text = "",
       OpenMode mode = OpenMode.externalNonBrowserApplication}) async {
+    if (whatsAppNumber != null && whatsAppNumber.isNotEmpty) {
+      try {
+        return await launchUrl(
+            Uri.parse(
+                "https://api.whatsapp.com/send?phone=$whatsAppNumber&text=$text"),
+            mode: _getLaunchMode(mode));
+      } catch (e) {
+        return false;
+      }
+    } else {
+      try {
+        return await launchUrl(Uri.parse("whatsapp://send?text=$text"),
+            mode: _getLaunchMode(mode));
+      } catch (e) {
+        return false;
+      }
+    }
+  }
+
+  /// open local file (Only ANDROID, IOS)
+  static Future<OpenResult> localFile({String filePath = ""}) async {
+    return OpenFile.open(filePath);
+  }
+
+  static LaunchMode _getLaunchMode(OpenMode mode) {
     LaunchMode launchMode = LaunchMode.platformDefault;
     switch (mode) {
       case OpenMode.externalNonBrowserApplication:
@@ -37,46 +100,6 @@ class Open {
         launchMode = LaunchMode.platformDefault;
         break;
     }
-    try {
-      return await launchUrl(Uri.parse(url), mode: launchMode);
-    } catch (e) {
-      return false;
-    }
-  }
-
-  /// open phone dial
-  static Future<bool> phone(
-      {String phoneNumber = "",
-      OpenMode mode = OpenMode.externalNonBrowserApplication}) async {
-    return await Open.browser(url: "tel:$phoneNumber", mode: mode);
-  }
-
-  /// share content to mail
-  static Future<bool> mail(
-      {String toAddress = "",
-      String subject = "",
-      String body = "",
-      OpenMode mode = OpenMode.externalNonBrowserApplication}) async {
-    return await Open.browser(
-        url: "mailto:$toAddress?subject=$subject&body=$body", mode: mode);
-  }
-
-  /// share content to whatsapp
-  static Future<bool> whatsApp(
-      {String? whatsAppNumber,
-      String text = "",
-      OpenMode mode = OpenMode.externalNonBrowserApplication}) async {
-    if (whatsAppNumber != null && whatsAppNumber.isNotEmpty) {
-      return await Open.browser(
-          url: "https://api.whatsapp.com/send?phone=$whatsAppNumber&text=$text",
-          mode: mode);
-    } else {
-      return await Open.browser(url: "whatsapp://send?text=$text", mode: mode);
-    }
-  }
-
-  /// open local file (Only ANDROID, IOS)
-  static Future<OpenResult> localFile({String filePath = ""}) async {
-    return OpenFile.open(filePath);
+    return launchMode;
   }
 }
