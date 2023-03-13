@@ -1,4 +1,6 @@
-dart format .
-dart analyze
 dart pub login
 dart pub logout
+dart format .
+dart analyze
+dart pub publish --dry-run
+dart pub publish
