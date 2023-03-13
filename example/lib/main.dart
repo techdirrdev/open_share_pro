@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
             const SizedBox(height: 20),
             ElevatedButton(
                 onPressed: () {
-                  Open.phone(phoneNumber: "+919426636120");
+                  Open.phone(phoneNumber: "+919879626497");
                 },
                 child: const Text("Open Phone Dial")),
             const SizedBox(height: 20),
@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
             ElevatedButton(
                 onPressed: () {
                   Open.whatsApp(
-                      whatsAppNumber: "919426636120", text: "techdirr");
+                      whatsAppNumber: "919879626497", text: "techdirr");
                 },
                 child: const Text("Send WhatsApp")),
             const SizedBox(height: 20)

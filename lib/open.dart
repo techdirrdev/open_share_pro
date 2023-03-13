@@ -1,4 +1,4 @@
-import 'package:open_file/open_file.dart';
+import 'package:open_filex/open_filex.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 enum OpenMode {
@@ -81,7 +81,7 @@ class Open {
 
   /// open local file (Only ANDROID, IOS)
   static Future<OpenResult> localFile({String filePath = ""}) async {
-    return OpenFile.open(filePath);
+    return OpenFilex.open(filePath);
   }
 
   static LaunchMode _getLaunchMode(OpenMode mode) {

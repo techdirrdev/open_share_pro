@@ -25,6 +25,11 @@ dependencies:
 For help getting started with Flutter, view the online
 [documentation](https://flutter.io/).
 
+## Setup Configuration
+
+- Please check if use open localFile [open_filex](https://pub.dev/packages/open_filex).
+- Please check if use open browser, phone, mail and whatsapp [url_launcher](https://pub.dev/packages/url_launcher).
+
 ## Example
 
 Please follow this [example](https://github.com/techdirrdev/open_share_pro/tree/master/example) here.
@@ -39,7 +44,7 @@ Open.browser(url: "https://techdirr.com")
 ### Phone Dial
 
 ```dart
-Open.phone(phoneNumber: "+919426636120")
+Open.phone(phoneNumber: "+919879626497")
 ```
 
 ### Mail
@@ -51,7 +56,7 @@ Open.mail(toAddress: "dev@techdirr.com", subject: "techdirr", body: "techdirr de
 ### WhatsApp (whatsAppNumber with country code)
 
 ```dart
-Open.whatsApp(whatsAppNumber: "919426636120", text: "techdirr")
+Open.whatsApp(whatsAppNumber: "919879626497", text: "techdirr")
 ```
 
 ### Local File (Only ANDROID, IOS)
